@@ -6,7 +6,7 @@ import {
   FaStar,
   FaCodeBranch,
   FaExclamationTriangle
-} from "react-icons/Fa";
+} from "react-icons/fa";
 import Card from "./Card";
 import Loading from "./Loading";
 import Tooltip from "./Tooltip";

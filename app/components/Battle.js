@@ -4,7 +4,7 @@ import {
   FaFighterJet,
   FaTrophy,
   FaTimesCircle
-} from "react-icons/Fa";
+} from "react-icons/fa";
 import PropTypes from "prop-types";
 import { ThemeConsumer } from "../contexts/theme";
 import { Link } from "react-router-dom";
