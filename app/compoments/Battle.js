@@ -6,7 +6,6 @@ import {
   FaTimesCircle
 } from "react-icons/Fa";
 import PropTypes from "prop-types";
-import Results from "./Results";
 import { ThemeConsumer } from "../contexts/theme";
 import { Link } from "react-router-dom";
 
@@ -52,25 +51,20 @@ function Instructions() {
 //? ======================================================================================================== //
 
 class PlayerInput extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    username: ""
+  };
 
-    this.state = {
-      username: ""
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
-
     this.props.onSubmit(this.state.username);
-  }
-  handleChange(event) {
+  };
+
+  handleChange = event => {
     this.setState({
       username: event.target.value
     });
-  }
+  };
 
   render() {
     return (
@@ -148,32 +142,25 @@ PlayerPreivew.propTypes = {
 //? ======================================================================================================== //
 
 export default class Battle extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    playerOne: null,
+    playerTwo: null
+  };
 
-    this.state = {
-      playerOne: null,
-      playerTwo: null
-      // battle: false
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handelReset = this.handelReset.bind(this);
-  }
-  handleSubmit(id, player) {
+  handleSubmit = (id, player) => {
     this.setState({
       [id]: player
     });
-  }
-  handelReset(id) {
+  };
+  handelReset = id => {
     this.setState({
       [id]: null
     });
-  }
+  };
 
   render() {
     const { playerOne, playerTwo } = this.state;
-    
+
     return (
       <React.Fragment>
         <Instructions />
