@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { ThemeProvider } from "./contexts/theme";
-import Nav from "./compoments/Nav";
+import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Loading from "./compoments/Loading";
+import Loading from "./components/Loading";
 
-const Popular = React.lazy(() => import("./compoments/Popular"));
-const Battle = React.lazy(() => import("./compoments/Battle"));
-const Results = React.lazy(() => import("./compoments/Results"));
+const Popular = React.lazy(() => import("./components/Popular"));
+const Battle = React.lazy(() => import("./components/Battle"));
+const Results = React.lazy(() => import("./components/Results"));
 
 class App extends React.Component {
   state = {
@@ -19,7 +19,6 @@ class App extends React.Component {
       }));
     }
   };
-
   render() {
     return (
       <Router>
@@ -27,6 +26,7 @@ class App extends React.Component {
           <div className={this.state.theme}>
             <div className="container">
               <Nav />
+
               <React.Suspense fallback={<Loading />}>
                 <Switch>
                   <Route exact path="/" component={Popular} />
